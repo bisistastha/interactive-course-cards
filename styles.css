@@ -1,0 +1,269 @@
+:root {
+    --primary-red: #C73D4D;
+    --bg-pink: #FFF1F1;
+    --highlight-green: #27B198;
+    --text-color: #333;
+}
+
+header {
+    margin-bottom: 2rem;
+}
+
+h1 {
+    font-size: 1.8rem;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+h2 {
+    font-size: 2.2rem;
+    color: var(--text-color);
+    margin-top: 0;
+}
+
+.highlight {
+    color: var(--highlight-green);
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.container {
+    display: flex;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card {
+    flex: 0.8; /* Decreased from 1 to make non-expanded cards narrower */
+    min-height: 300px;
+    border-radius: 20px;
+    padding: 20px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: var(--bg-pink);
+    color: var(--primary-red);
+    transform-origin: center left; /* Set rotation origin */
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card.expanded {
+    flex: 2; /* Increased from 3 to make expanded card wider */
+    background-color: var(--primary-red) !important;
+    color: white !important;
+    transform: perspective(1000px) rotateY(0deg);
+}
+
+.vertical-text {
+    position: absolute;
+    right: 40px;
+    height: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+    top: 50%;
+    transform: translateY(-50%);
+    transform-origin: left center;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.vertical-text .title {
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+    font-size: 1.2rem;
+    font-weight: bold;
+    white-space: nowrap;
+    margin: 0;
+    line-height: 1.2;
+    text-transform: uppercase;
+    height: fit-content;
+}
+
+.vertical-text .subtitle {
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+    font-size: 0.8rem;
+    white-space: nowrap;
+    opacity: 0.8;
+    margin-right: 20px;
+    line-height: 1.2;
+    height: fit-content;
+}
+
+.icon-grid {
+    display: none;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 300px;
+    margin: 60px auto;
+}
+
+.card.expanded .icon-grid {
+    display: grid;
+}
+
+.icon-grid img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+.number {
+    font-size: 5rem;
+    font-weight: bold;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    line-height: 1;
+}
+
+.number sup {
+    font-size: 2rem;
+    margin-left: 5px;
+}
+
+/* Expanded state styles */
+.card.expanded .bottom-content {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    align-items: flex-end;
+    gap: 30px; /* Space between number and text */
+}
+
+.card.expanded .number {
+    position: static;
+    font-size: 6rem;
+    line-height: 1;
+    margin: 0;
+}
+
+.card.expanded .vertical-text {
+    position: static;
+    transform: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align text to the left */
+    margin-bottom: 10px;
+    transform: rotate(0deg);
+}
+
+.card.expanded .vertical-text .title,
+.card.expanded .vertical-text .subtitle {
+    writing-mode: horizontal-tb;
+    transform: none;
+    white-space: normal;
+    width: 100%; /* Ensure full width */
+    transform: rotate(0deg);
+}
+
+.card.expanded .vertical-text .title {
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+}
+
+.card.expanded .vertical-text .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin: 0;
+    margin-right: 0; /* Remove any right margin */
+}
+
+.expanded-only {
+    display: none;
+}
+
+.view-all {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: inherit;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    opacity: 0; /* Start hidden */
+    transition: opacity 0.3s ease;
+}
+
+.view-all svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Show view-all only in expanded state */
+.card.expanded .view-all {
+    display: flex;
+    opacity: 1;
+}
+
+/* Hide in non-expanded state */
+.card:not(.expanded) .view-all {
+    display: none;
+}
+
+.card.expanded .stats {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.card.expanded .stats .number {
+    position: static; /* Remove absolute positioning */
+    font-size: 6rem;
+    line-height: 1;
+    margin: 0;
+}
+
+.card.expanded .stats p {
+    margin: 0;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.card:not(.expanded) {
+    position: relative;
+}
+
+.card:not(.expanded)::after {
+    content: '';
+    position: absolute;
+    top: -40px; /* Move above the card */
+    left: 20px;
+    width: 80px;
+    height: 60px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    background-image: 
+        /* Text "Click me!" */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='20'%3E%3Ctext x='0' y='15' font-size='14' fill='%23C73D4D'%3EClick me!%3C/text%3E%3C/svg%3E"),
+        /* Simple curved arrow with point */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Cpath d='M4 4C8 4 16 8 16 16L16 12M16 16L12 14' stroke='%23C73D4D' fill='none' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat, no-repeat;
+    background-position: 
+        left center,
+        right center;
+    background-size: 
+        auto 15px,
+        24px 24px;
+    pointer-events: none;
+}
+
+.card:not(.expanded):hover::after {
+    opacity: 1;
+}
+
+/* Hide the hover effect when card is expanded */
+.card.expanded::after {
+    display: none;
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Explore our classes and master trending skills!</h1>
+        <h2>Dive Into <span class="highlight">What's Hot Right Now!</span> 🔥</h2>
+    </header>
+
+    <main class="container">
+        <!-- First card starts expanded -->
+        <div class="card expanded" onclick="expandCard(this)">
+            <div class="view-all expanded-only">
+                View all Courses 
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z" fill="currentColor"/>
+                </svg>
+            </div>
+            <div class="icon-grid">
+                <img src="react-icon.png" alt="React">
+                <img src="js-icon.png" alt="JavaScript">
+                <img src="vue-icon.png" alt="Vue">
+                <img src="design-icon.png" alt="Design">
+            </div>
+            <div class="bottom-content">
+                <div class="number">23<sup>+</sup></div>
+                <div class="vertical-text">
+                    <span class="title">All Courses</span>
+                    <span class="subtitle">courses you're powering through right now.</span>
+                </div>
+            </div>
+        </div>
+        </div>
+        
+        <!-- Pink cards with vertical text -->
+        <div class="card pink-card" onclick="expandCard(this)">
+            <div class="view-all expanded-only">
+                View all Courses 
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z" fill="currentColor"/>
+                </svg>
+            </div>
+            <div class="icon-grid" style="display: none;">
+                <img src="react-icon.png" alt="React">
+                <img src="js-icon.png" alt="JavaScript">
+                <img src="vue-icon.png" alt="Vue">
+                <img src="design-icon.png" alt="Design">
+            </div>
+            <div class="bottom-content">
+                <div class="number">5<sup>+</sup></div>
+                <div class="vertical-text">
+                    <span class="title">Courses Upcoming</span>
+                    <span class="subtitle">exciting new courses waiting to boost your skills.</span>
+                </div>
+            </div>
+        </div>
+            
+        </div>
+    
+        <div class="card pink-card" onclick="expandCard(this)">
+            <div class="view-all expanded-only">
+                View all Courses 
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z" fill="currentColor"/>
+                </svg>
+            </div>
+            <div class="icon-grid" style="display: none;">
+                <img src="react-icon.png" alt="React">
+                <img src="js-icon.png" alt="JavaScript">
+                <img src="vue-icon.png" alt="Vue">
+                <img src="design-icon.png" alt="Design">
+            </div>
+            <div class="bottom-content">
+                <div class="number">10<sup>+</sup></div>
+                <div class="vertical-text">
+                    <span class="title">Courses Ongoing</span>
+                    <span class="subtitle">currently happening—don't miss out on the action!</span>
+                </div>
+            </div>
+        </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
