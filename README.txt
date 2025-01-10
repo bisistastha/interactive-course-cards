@@ -92,7 +92,7 @@ Author
 
 Bisista Shrestha
 - GitHub: [@bisistastha](https://github.com/bisistastha)
-- LinkedIn: [Bisista Shrestha](https://linkedin.com/in/bisista-shrestha)
+- LinkedIn: [Bisista Shrestha](https://linkedin.com/in/bisista-shrestha-5b9181181)
 
 ##  Acknowledgments
 
